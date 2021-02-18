@@ -1,5 +1,31 @@
 # Lotto
 ```jsx
+infoLbl.setText(turnTxt.getText() + "회차의 정보입니다.");
+		turnTxt.setText("");
+	
+		for (int i = 0; i < MAX_CNT; i++) {
+			// btn[i].setText((String)jo.get("drwtNo"+(i+1)));
+			String strNo = String.valueOf(jo.get("drwtNo" + (i + 1)));
+			// 공 색깔
+			btn[i].setText(strNo);
+			int a = Integer.parseInt(strNo);
+			if (a > 40) {
+				btn[i].setBgColor(Color.magenta);
+			} else if (a > 30) {
+				btn[i].setBgColor(Color.cyan);
+			} else if (a > 20) {
+				btn[i].setBgColor(Color.lightGray);
+			} else if (a > 10) {
+				btn[i].setBgColor(Color.pink);
+			} else {
+				btn[i].setBgColor(Color.orange);
+			}
+			btn[6].setBgColor(Color.green);
+		}
+		btn[MAX_CNT].setText(String.valueOf(jo.get("bnusNo")));
+		
+		
+		
 try {
 	//https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=112
 	URL url = new URL("https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo="+turn);
