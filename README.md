@@ -1,5 +1,21 @@
 # Lotto
 ```jsx
+try {
+			//https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=112
+			URL url = new URL("https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo="+turn);
+			HttpsURLConnection conn = null;
+			HostnameVerifier hnv = new HostnameVerifier() {
+				@Override
+				public boolean verify(String hostname, SSLSession session) {
+					return true; //return false;
+				}
+			};
+			
+			
+			
+			
+			
+			
 	public class Lotto extends JFrame implements MouseListener, KeyListener {
 	final int WIDTH_BTN = 50;
 	final int WIDTH_GAP = 5;
