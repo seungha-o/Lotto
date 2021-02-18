@@ -1,5 +1,27 @@
 # Lotto
 ```jsx
+JsonReader jr = new JsonReader();
+		JSONObject jo = jr.connectionUrlToJson(turnTxt.getText()); // json으로 긁어온건 String
+		String[] right = new String[MAX_CNT]; // 로또번호 확인하기위한 변수
+		int nCnt = 0; // 맞는 숫자 개수
+		int bCnt = 0; // 맞는 숫자 개수(보너스 번호. 2등)
+		
+if (nCnt == 6) {
+		rankLabel.setText("축하합니다 1등입니다!");
+		} else if (nCnt == 5 && bCnt == 1) {
+			rankLabel.setText("축하합니다 2등입니다!");
+		} else if (nCnt == 5) {
+			rankLabel.setText("축하합니다 3등입니다!");
+		} else if (nCnt == 4) {
+			rankLabel.setText("축하합니다 4등입니다!");
+		} else if (nCnt == 3) {
+			rankLabel.setText("축하합니다 5등입니다!");
+		} else {
+			rankLabel.setText("다음 기회를 노려보세요.");
+		}
+
+
+
 infoLbl.setText(turnTxt.getText() + "회차의 정보입니다.");
 		turnTxt.setText("");
 	
