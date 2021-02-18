@@ -23,8 +23,10 @@
 1명 
 
 # 주요기능
-1. 초기화면 
+1. 초기화면
+ 
 ![화면 캡처 2021-02-18 125641](https://user-images.githubusercontent.com/69295153/108355693-8166eb80-722e-11eb-8926-685e1d8b7541.png)
+
 숫자 여섯개를 각각 입력 할수 있도록 JButton과 JTextField 사용했습니다. 
 JButton은 보너스 번호까지 포함하여 배열을 7개 생성하였으며, 크기와 모양을 조정하기위해 JLable이아닌 Jbutton을 사용했습니다.
 
@@ -97,39 +99,20 @@ public class Lotto extends JFrame implements KeyListener, MouseListener {
 		txt[i].setHorizontalAlignment(JTextField.CENTER); // 커서 위치
 		c.add(txt[i]);
 	}
-		//add전에 
-		turnTxt.setBounds(306, 265, 100, 40);
-		c.add(turnTxt);
-		checkBtn.setFont(new Font("휴먼엑스포", Font.PLAIN, 30));
-		checkBtn.setBounds(416, 265, 100, 40);
-		c.add(checkBtn);
-		infoLbl.setFont(new Font("휴먼엑스포", Font.PLAIN, 23));
-		infoLbl.setText("\uC22B\uC790 \uC5EC\uC12F\uAC1C\uC640 \uD68C\uCC28\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694");
-		infoLbl.setBounds(40, 14, 423, 40);
-		infoLbl.setForeground(new Color(0, 153, 255));
-		c.add(infoLbl);
-		
-		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 10, 10);
-		getContentPane().add(panel);
-		rankLabel.setFont(new Font("한컴 고딕", Font.PLAIN, 23));
-		rankLabel.setBounds(40, 215, 300, 30);
-		c.add(rankLabel);
-		turnLabel.setFont(new Font("한컴 고딕", Font.PLAIN, 20));
-		turnLabel.setOpaque(false);
-		turnLabel.setBounds(25, 265, 300, 120);
-		turnLabel.setForeground(Color.black);
-		c.add(turnLabel);
-	}	c.add(turnLabel);
-
  ```
+ 
 2. 실행화면
+3. 
 ![화면 캡처 2021-02-18 124359](https://user-images.githubusercontent.com/69295153/108355691-80ce5500-722e-11eb-92a2-5ef352eb21a3.png)
+
 JsonReader.java
+
 ```jsx
 URL url = new URL("https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo="+turn);
 ```
-turn에 입력한 회차의 로또번호를 위 url에서 JsonObject로 받아옵니다. 
+
+turn에 입력한 회차의 로또번호를 위 url에서 JsonObject로 받아옵니다.
+
 ```jsx
 infoLbl.setText(turnTxt.getText() + "회차의 정보입니다.");
 		turnTxt.setText("");
@@ -155,7 +138,9 @@ infoLbl.setText(turnTxt.getText() + "회차의 정보입니다.");
 		}
 		btn[MAX_CNT].setText(String.valueOf(jo.get("bnusNo")));
 ```
+
 해당회차의 번호가 Jbutton에 set되며, 숫자의 범위에 따라 배경색을 지정합니다. 
+
 ```jsx
 for (int i = 0; i < MAX_CNT; i++) {
 					for (int j = 0; j < right.length; j++) {
@@ -187,7 +172,10 @@ for (int i = 0; i < MAX_CNT; i++) {
 					rankLabel.setText("다음 기회를 노려보세요.");
 				}
 	}
-``` nCnt와 bCnt로 맞은숫자와 보너스 숫자와 일치하는지 확인합니다. 
+``` 
+
+nCnt와 bCnt로 맞은숫자와 보너스 숫자와 일치하는지 확인합니다. 
+
 3. 그 외
 ![화면 캡처 2021-02-18 180622](https://user-images.githubusercontent.com/69295153/108355685-8035be80-722e-11eb-8edc-6ae7a4e16d51.png)
 입력한 숫자중에 중복된 숫자가 있는지 검사합니다. 
@@ -205,7 +193,9 @@ for (int i = 0; i < MAX_CNT; i++) {
 			}
 ```
 ![화면 캡처 2021-02-18 133740](https://user-images.githubusercontent.com/69295153/108355696-81ff8200-722e-11eb-9c0d-bb73072527d6.png)
+
 입력한 숫자가 1-45사이의 숫자인지 검사합니다. 
+
 ```jsx
 //로또 번호 범위
 	if(Integer.parseInt(txt[0].getText())<1||Integer.parseInt(txt[0].getText())>45
@@ -218,8 +208,10 @@ for (int i = 0; i < MAX_CNT; i++) {
 		   turnLabel.setText("로또 번호의 범위는 1~45 입니다.");
 		   return;
 	}
-```			
+```
+
 ![화면 캡처 2021-02-18 134824](https://user-images.githubusercontent.com/69295153/108355698-81ff8200-722e-11eb-85de-bea8b1ef702c.png)
+
 검색할 회차가 공백이거나 문자인 경우 출력하는 메세지입니다. 
 ```jsx
 try { // 회차 입력 
