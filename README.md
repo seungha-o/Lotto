@@ -1,5 +1,36 @@
 # Lotto
 ```jsx
+private void showResult() {
+		super.setTitle("결과화면보기");
+		try { // 회차 입력 
+			Integer.parseInt(turnTxt.getText()); // 문자로 입력받은 turnNum을 int형으로 반환 
+		} catch (Exception e) {
+			// e.printStackTrace(); 숫자가 아니면 들어감
+			turnLabel.setText("찾는 회차의 숫자를 입력해주세요");
+			turnTxt.setText("");
+			return;
+		}
+		turnLabel.setText("");
+		
+		JsonReader jr = new JsonReader();
+		JSONObject jo = jr.connectionUrlToJson(turnTxt.getText()); // json으로 긁어온건 String
+		String[] right = new String[MAX_CNT]; // 로또번호 확인하기위한 변수
+		int nCnt = 0; // 맞는 숫자 개수
+		int bCnt = 0; // 맞는 숫자 개수(보너스 번호. 2등)
+						
+		if (jo == null) {
+			infoLbl.setText("찾는 회차의 정보가 없습니다.");
+			turnTxt.setText("");
+			return;
+		}
+		if (jo.get("returnValue").equals("fail")) {
+			infoLbl.setText(turnTxt.getText() + "찾는 회차의 정보가 없습니다.");
+			turnTxt.setText("");
+			return;
+		}
+		
+		
+		
 JsonReader jr = new JsonReader();
 		JSONObject jo = jr.connectionUrlToJson(turnTxt.getText()); // json으로 긁어온건 String
 		String[] right = new String[MAX_CNT]; // 로또번호 확인하기위한 변수
