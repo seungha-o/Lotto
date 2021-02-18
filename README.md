@@ -1,6 +1,28 @@
 # Lotto
 ```jsx
-	
+	public class Lotto extends JFrame implements MouseListener, KeyListener {
+	final int WIDTH_BTN = 50;
+	final int WIDTH_GAP = 5;
+	private final int MAX_CNT = 6;
+	private final int MAX_CNT_W_BN = 7;
+	// 로또 당첨 번호 표시 - JButton --> 라벨을 쓸 수 없기 때문(크기 위치조정 안됨). 동그라미 그려서 색칠하는 형태
+	// 7개
+	private MyButton[] btn = new MyButton[MAX_CNT_W_BN];
+
+	// 로또 당첨 확인할 번호 입력 - TextField
+	private JTextField[] txt = new JTextField[MAX_CNT];
+
+	// 회차 입력 - JTextField
+	private JTextField turnTxt = new JTextField();
+
+	// 회차 확인 = JButton
+	private JButton checkBtn = new JButton("확인");
+
+	// 정보 - JLabel
+	private JLabel infoLbl = new JLabel();
+
+	// 순위 문구
+	JLabel rankLabel = new JLabel("");
 	public Lotto() {
 		super("로또확인 프로그램");
 		getContentPane().setFont(new Font("휴먼엑스포", Font.PLAIN, 30));
