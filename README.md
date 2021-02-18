@@ -1,15 +1,15 @@
 # Lotto
 ```jsx
 try {
-			//https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=112
-			URL url = new URL("https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo="+turn);
-			HttpsURLConnection conn = null;
-			HostnameVerifier hnv = new HostnameVerifier() {
-				@Override
-				public boolean verify(String hostname, SSLSession session) {
-					return true; //return false;
-				}
-			};
+	//https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=112
+	URL url = new URL("https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo="+turn);
+	HttpsURLConnection conn = null;
+	HostnameVerifier hnv = new HostnameVerifier() {
+		@Override
+		public boolean verify(String hostname, SSLSession session) {
+			return true; //return false;
+		}
+	};
 			
 			
 			
