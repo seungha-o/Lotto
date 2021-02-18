@@ -1,9 +1,9 @@
 # Lotto
 
-### 개요
+## 개요
 로또 번호 확인 프로그램
 
-### 기술스택
+## 기술스택
 - FrontEnd - Java Swing
 - BackEnd - Java(JDK 1.8)
 - Library&API - json-simple-1.1.1.jar
@@ -11,7 +11,7 @@
 - Server - Java Application
 - Cl - Github, git
 
-### 설계의 주안점 
+## 설계의 주안점 
 - Swing으로만 구성
 - Window Builder를 이용해서 UI 배치
 - Json을 이용해 로또번호를 읽어옴
@@ -19,7 +19,7 @@
 - 유효성 검사
 - 숫자의 범위에 따른 배경색 변경
 
-### 팀원
+## 팀원
 1명 
 
 # 주요기능
@@ -37,32 +37,23 @@ public class Lotto extends JFrame implements KeyListener, MouseListener {
 	final int WIDTH_GAP = 5;
 	private final int MAX_CNT = 6;
 	private final int MAX_CNT_W_BN = 7;
-	// 로또 당첨 번호 표시 - JButton : label이 불편하여 사용함. 동그라미 그려서 색칠하는 형태
-	// 6+1
 	MyButton[] btn = new MyButton[MAX_CNT_W_BN];
-
 	// 로또 당첨 확인할 번호 입력 - JTextField
 	JTextField[] txt = new JTextField[MAX_CNT];
-
 	// 회차 입력 - JTextField
 	 JTextField turnTxt = new JTextField();
-
 	// 회차확인 - JButton
 	JButton checkBtn = new JButton("확인");
-
 	// 정보 - JLabel
 	JLabel infoLbl = new JLabel();
-
 	// 순위 문구
 	JLabel rankLabel = new JLabel("");
-
 	// 회차 정보, 경고 문구 표시할 라벨
 	JLabel turnLabel = new JLabel("");
-		
 	public Lotto() {
 		super("로또확인 프로그램");
 		getContentPane().setFont(new Font("휴먼엑스포", Font.PLAIN, 30));
-		// 처음 화면을 구성함.
+		// 처음 화면
 		init();
 		Container c = getContentPane();
 		c.setLayout(null);
@@ -102,7 +93,7 @@ public class Lotto extends JFrame implements KeyListener, MouseListener {
  ```
  
 2. 실행화면
-3. 
+
 ![화면 캡처 2021-02-18 124359](https://user-images.githubusercontent.com/69295153/108355691-80ce5500-722e-11eb-92a2-5ef352eb21a3.png)
 
 JsonReader.java
@@ -177,6 +168,7 @@ for (int i = 0; i < MAX_CNT; i++) {
 nCnt와 bCnt로 맞은숫자와 보너스 숫자와 일치하는지 확인합니다. 
 
 3. 그 외
+
 ![화면 캡처 2021-02-18 180622](https://user-images.githubusercontent.com/69295153/108355685-8035be80-722e-11eb-8edc-6ae7a4e16d51.png)
 입력한 숫자중에 중복된 숫자가 있는지 검사합니다. 
 ```jsx
@@ -224,7 +216,7 @@ try { // 회차 입력
 	}
 	turnLabel.setText("");
 ```
-### 보완할 점
+## 보완할 점
 - 해당회차의 다양한 정보 표시 (당첨금, 추첨일 등)
 - UI 개선
 - 랜덤 로또번호 
